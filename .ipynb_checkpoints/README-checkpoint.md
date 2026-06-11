@@ -243,10 +243,4 @@ Com base nos resultados, recomenda-se:
 **Luiz P. Hatem**
 
 * GitHub: https://github.com/LuizPH0
-<<<<<<< HEAD
 * LinkedIn: https://www.linkedin.com/in/luiz-p-hatem/
-=======
-* LinkedIn: https://www.linkedin.com/in/luiz-p-hatem/
-
-```
->>>>>>> 15b5a721aa2530ae8935ed97944835d9717ac327
