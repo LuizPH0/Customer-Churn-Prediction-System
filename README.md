@@ -61,7 +61,7 @@ customer-churn-prediction/
 │   └── 07_dashboard_dataset.ipynb
 │
 ├── dashboard/
-│   └── churn_dashboard.pbix
+│   └── customer_churn_dashboard.pbix
 │
 ├── requirements.txt
 └── README.md
