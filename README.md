@@ -1,54 +1,49 @@
-# 📉 Customer Churn Prediction - Telecom
+# Customer Churn Prediction System
 
-Projeto de Machine Learning para predição de **Churn (cancelamento de clientes)** em uma empresa de telecomunicações.
-
-O objetivo do projeto é identificar clientes com maior risco de cancelamento, gerar insights estratégicos e propor ações de retenção com base em dados.
+Sistema de predição de cancelamento de clientes (Churn Prediction) desenvolvido utilizando Machine Learning, Power BI e Streamlit para auxiliar estratégias de retenção de clientes.
 
 ---
 
-# 🚀 Objetivo do Projeto
+## Objetivo
 
-O churn de clientes é um dos principais problemas enfrentados por empresas de telecomunicações.
-
-Neste projeto foi desenvolvido um pipeline completo de análise de dados e Machine Learning para:
-
-- Entender os fatores relacionados ao cancelamento de clientes;
-- Identificar padrões comportamentais;
-- Construir modelos preditivos de churn;
-- Ajustar threshold de decisão visando maior retenção;
-- Gerar insights de negócio para estratégias de fidelização.
+O objetivo deste projeto é identificar clientes com maior propensão ao cancelamento de serviços, permitindo que empresas realizem ações preventivas de retenção, reduzindo perdas financeiras e aumentando a fidelização.
 
 ---
 
-# 🛠️ Tecnologias Utilizadas
+## Problema de Negócio
 
-- Python
-- Pandas
-- NumPy
-- Matplotlib
-- Scikit-Learn
-- Joblib
-- Jupyter Notebook
-- Power BI
+Empresas de telecomunicações frequentemente enfrentam altas taxas de cancelamento de clientes.
+
+Antecipar quais clientes possuem maior risco de churn possibilita:
+
+- Redução de perda de receita;
+- Aumento da retenção;
+- Campanhas de fidelização mais eficientes;
+- Melhor alocação dos recursos comerciais.
 
 ---
 
-# 📂 Estrutura do Projeto
+## Arquitetura do Projeto
 
-```txt
-customer-churn-prediction/
+```text
+Customer-Churn-Prediction-System/
+
+├── app/
+│   └── app.py
+│
 │
 ├── data/
-│   ├── raw/
-│   │   └── WA_Fn-UseC_-Telco-Customer-Churn.csv
-│   │
-│   └── processed/
-│       ├── encoded_df.csv
-│       └── dashboard_dataset.csv
+│
+├── raw/
+│    └── WA_Fn-UseC_-Telco-Customer-Churn.csv
+│
+├── processed/
+│    └── encoded_df.csv
+│    └── dashboard_dataset.csv
 │
 ├── models/
-│   ├── model_lr.pkl
-│   ├── scaler.pkl
+│   ├── final_model.pkl
+│   ├── final_scaler.pkl
 │   └── feature_names.pkl
 │
 ├── notebooks/
@@ -58,189 +53,232 @@ customer-churn-prediction/
 │   ├── 04_data_cleaning_feature_engineering.ipynb
 │   ├── 05_model_training.ipynb
 │   ├── 06_feature_importance_business_insights.ipynb
-│   └── 07_dashboard_dataset.ipynb
-│
-├── dashboard/
-│   └── customer_churn_dashboard.pbix
+│   ├── 07_dashboard_dataset.ipynb
+│   ├── 08_model_improvement(XGB).ipynb
+│	├── 09_model_optimization.ipynb
+│	└── 10_model_evaluation.ipynb
 │
 ├── requirements.txt
-└── README.md
-````
-
----
-
-# 📊 Dataset
-
-O dataset utilizado foi o **IBM Telco Customer Churn Dataset**, contendo informações demográficas, financeiras e contratuais de clientes de telecom.
-
-Principais variáveis:
-
-* Tipo de contrato
-* Serviço de internet
-* Tempo de permanência (tenure)
-* Método de pagamento
-* Serviços adicionais
-* Custos mensais e totais
-
-**Target:**
-
-* `Churn`
-
-  * Yes → Cliente cancelou
-  * No → Cliente permaneceu
-
----
-
-# 🔎 Etapas do Projeto
-
-## 1. Business Understanding
-
-Definição do problema de negócio:
-
-> Como prever clientes com maior risco de churn e reduzir cancelamentos?
-
----
-
-## 2. Exploratory Data Analysis (EDA)
-
-Análises realizadas:
-
-* Churn por tipo de contrato;
-* Churn por método de pagamento;
-* Churn por serviço de internet;
-* Churn por tenure;
-* Churn por senior citizens;
-* Relação entre serviços adicionais e churn.
-
-### Principais Insights
-
-✅ Clientes **Month-to-Month** cancelam mais.
-
-✅ Clientes com **Fiber Optic** apresentam maior taxa de churn.
-
-✅ Clientes com maior **tenure** possuem menor chance de cancelamento.
-
-✅ Contratos anuais e bianuais demonstram maior retenção.
-
-✅ Clientes com **Tech Support** e **Online Security** tendem a permanecer.
-
----
-
-## 3. Data Cleaning & Feature Engineering
-
-Tratamentos realizados:
-
-* Conversão da coluna `TotalCharges` para formato numérico;
-* Tratamento de valores ausentes;
-* Encoding de variáveis categóricas;
-* Preparação para Machine Learning;
-* Train/Test Split;
-* Feature Scaling com `StandardScaler`.
-
----
-
-## 4. Machine Learning
-
-Modelos testados:
-
-### Logistic Regression
-
-* Accuracy: **80.38%**
-* Precision: **0.65**
-* Recall: **0.57**
-* F1-score: **0.61**
-
-### Decision Tree
-
-* Accuracy: **78%**
-* Precision: **0.58**
-* Recall: **0.60**
-* F1-score: **0.59**
-
-### Random Forest
-
-* Accuracy: **79%**
-* Precision: **0.64**
-* Recall: **0.48**
-* F1-score: **0.55**
-
----
-
-## 🎯 Threshold Tuning
-
-Foi realizado ajuste do threshold da Regressão Logística visando otimização da identificação de churn.
-
-### Resultado
-
-Threshold padrão:
-
-```txt
-0.50
+├── README.md
+├── churn_dashboard.pbix
+└── .gitignore
 ```
 
-Threshold otimizado:
+---
 
-```txt
-0.40
+# Exploratory Data Analysis (EDA)
+
+Principais insights encontrados:
+
+### Clientes com maior probabilidade de churn
+
+✅ Internet Fiber Optic
+
+✅ Contratos mensais
+
+✅ Electronic Check
+
+✅ Streaming TV
+
+✅ Streaming Movies
+
+✅ Clientes idosos (+65 anos)
+
+---
+
+### Clientes com menor probabilidade de churn
+
+✅ Contratos anuais
+
+✅ Tech Support
+
+✅ Online Security
+
+✅ Clientes com dependentes
+
+✅ Clientes com maior tenure
+
+---
+
+# Modelagem
+
+Modelos avaliados:
+
+| Modelo | Accuracy | Precision | Recall | F1 |
+|--------|----------|-----------|--------|----|
+| Logistic Regression | 80% | 65% | 57% | 61% |
+| Decision Tree | 78% | 58% | 60% | 59% |
+| Random Forest | 79% | 64% | 48% | 55% |
+| XGBoost | 78% | 59% | 55% | 57% |
+| Logistic Balanced | 73% | 49% | **80%** | **61%** |
+
+---
+
+## Modelo Escolhido
+
+### Logistic Regression (Balanced)
+
+Justificativa:
+
+Apesar do XGBoost apresentar maior Accuracy, a Regressão Logística Balanceada foi escolhida devido ao alto Recall.
+
+O objetivo do projeto é identificar clientes em risco de cancelamento.
+
+Nesse contexto, minimizar falsos negativos é mais importante do que reduzir falsos positivos.
+
+---
+
+# Avaliação do Modelo
+
+## Métricas finais
+
+Accuracy
+
+```python
+72.64%
 ```
 
-Resultados:
+Precision
 
-* Precision: **0.58**
-* Recall: **0.68**
-* F1-score: **0.63**
+```python
+49.09%
+```
 
-O threshold otimizado aumentou significativamente a capacidade do modelo em identificar clientes com risco de cancelamento.
+Recall
 
----
+```python
+79.68%
+```
 
-## 📈 Business Insights
+F1 Score
 
-O modelo apontou os principais fatores relacionados ao churn:
+```python
+60.75%
+```
 
-### Fatores que aumentam churn
+ROC-AUC
 
-* Fiber Optic
-* Electronic Check
-* Streaming Services
-* Paperless Billing
-* Senior Citizen
-
-### Fatores que reduzem churn
-
-* Longo tempo de permanência (`tenure`)
-* Contratos de longo prazo
-* Tech Support
-* Online Security
-* Dependents
+```python
+0.835
+```
 
 ---
 
-## 💡 Recomendações Estratégicas
+## ROC Curve
 
-Com base nos resultados, recomenda-se:
-
-1. Criar campanhas para clientes **Month-to-Month**;
-2. Revisar experiência do serviço **Fiber Optic**;
-3. Incentivar migração para contratos anuais;
-4. Priorizar retenção nos primeiros meses do cliente;
-5. Aplicar campanhas preventivas usando o modelo preditivo.
+![Curva ROC](CurvaROC.png)
 
 ---
 
-# 📌 Próximos Passos
+## Confusion Matrix
 
-* [ ] Deploy do modelo com Streamlit
-* [ ] Dashboard interativo no Power BI
-* [ ] Hyperparameter Tuning
-* [ ] Cross Validation
-* [ ] Feature Importance avançada
+![Matriz de Confusão](Matriz-Confusao.png)
 
 ---
 
-# 👨‍💻 Autor
+# Dashboard Power BI
 
-**Luiz P. Hatem**
+O dashboard foi desenvolvido para acompanhamento das principais métricas relacionadas ao churn.
 
-* GitHub: https://github.com/LuizPH0
-* LinkedIn: https://www.linkedin.com/in/luiz-p-hatem/
+Indicadores disponíveis:
+
+- Taxa de churn;
+- Perfil dos clientes;
+- Contratos;
+- Internet Service;
+- Payment Methods;
+- Streaming Services;
+- Tenure;
+- Charges.
+
+![Dashboard](dashboard.png)
+
+---
+
+# Aplicação Streamlit
+
+A aplicação permite realizar predições individuais em tempo real.
+
+Funcionalidades:
+
+- Cadastro do cliente;
+- Predição de churn;
+- Score de risco;
+- Explicação do resultado;
+- Classificação automática.
+
+---
+
+## Executando localmente
+
+
+Instalar dependências
+
+
+```bash
+pip install -r requirements.txt
+```
+
+
+Executar aplicação
+
+
+```bash
+streamlit run app/app.py
+```
+
+
+---
+
+# Tecnologias Utilizadas
+
+- Python
+- Pandas
+- NumPy
+- Scikit-Learn
+- XGBoost
+- Matplotlib
+- Seaborn
+- Joblib
+- Power BI
+- Streamlit
+- Git
+- GitHub
+
+---
+
+# Aprendizados
+
+Durante o desenvolvimento deste projeto foram aplicados conceitos de:
+
+- EDA;
+- Feature Engineering;
+- Model Selection;
+- Threshold Tuning;
+- ROC Curve;
+- ROC-AUC;
+- Model Persistence;
+- Business Understanding;
+- Dashboard Development;
+- Streamlit Deployment.
+
+---
+
+# Autor
+
+### Luiz Hatem
+
+Estudante de Ciência da Computação | Analista de Dados | ML Enthusiast
+
+LinkedIn:
+
+www.linkedin.com/in/luiz-p-hatem/
+
+GitHub:
+
+github.com/LuizPH0
+
+
+---
+
+Caso tenha gostado do projeto, deixe uma estrela no repositório.
