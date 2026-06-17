@@ -166,13 +166,13 @@ ROC-AUC
 
 ## ROC Curve
 
-![Curva ROC](CurvaROC.png)
+![Curva ROC](images/CurvaROC.png)
 
 ---
 
 ## Confusion Matrix
 
-![Matriz de Confusão](Matriz-Confusao.png)
+![Matriz de Confusão](images/Matriz-Confusao.png)
 
 ---
 
@@ -191,7 +191,7 @@ Indicadores disponíveis:
 - Tenure;
 - Charges.
 
-![Dashboard](dashboard.png)
+![Dashboard](images/dashboard.png)
 
 ---
 
