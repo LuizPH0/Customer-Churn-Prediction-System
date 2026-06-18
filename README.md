@@ -33,13 +33,11 @@ Customer-Churn-Prediction-System/
 │
 │
 ├── data/
-│
-├── raw/
-│    └── WA_Fn-UseC_-Telco-Customer-Churn.csv
-│
-├── processed/
-│    └── encoded_df.csv
-│    └── dashboard_dataset.csv
+│    └── raw/
+│         └── WA_Fn-UseC_-Telco-Customer-Churn.csv
+│    └── processed/
+│           └── encoded_df.csv
+│           └── dashboard_dataset.csv
 │
 ├── models/
 │   ├── final_model.pkl
@@ -273,10 +271,6 @@ Estudante de Ciência da Computação | Analista de Dados | ML Enthusiast
 LinkedIn:
 
 www.linkedin.com/in/luiz-p-hatem/
-
-GitHub:
-
-github.com/LuizPH0
 
 
 ---
