@@ -266,7 +266,7 @@ Durante o desenvolvimento deste projeto foram aplicados conceitos de:
 
 ### Luiz Hatem
 
-Estudante de Ciência da Computação | Analista de Dados | ML Enthusiast
+Estudante de Ciência da Computação | Analista de Dados | Machine Learning Engineer
 
 LinkedIn:
 
